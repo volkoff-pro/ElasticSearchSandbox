@@ -10,5 +10,10 @@ namespace ElasticApp
         {
             var response = client.Indices.Create(indexName, create => create.Map<T>(map => map.AutoMap()));
         }
+
+        public static void CreateDefaultIndex<T>(this IElasticClient client, string indexName) where T : ElasticDocument
+        {
+            
+        }
     }
 }
