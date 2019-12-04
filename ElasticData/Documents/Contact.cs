@@ -9,5 +9,6 @@ namespace ElasticData.Documents
         public string LastName { get; set; }
         [Date(Format = "MM/dd/yyyy")]
         public string BirthDate { get; set; }
+        public ContactIndividual Individual { get; set; }
     }
 }
