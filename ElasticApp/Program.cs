@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ElasticData.Bootstrap;
 using ElasticData.Documents;
 using Nest;
 
 namespace ElasticApp
 {
-    class Program
+    static class Program
     {
         static IEnumerable<Func<QueryContainerDescriptor<Contact>, QueryContainer>> GetDataRangeQuery(string[] dates) =>
             dates == null
@@ -17,65 +15,55 @@ namespace ElasticApp
                 : dates.Select<string, Func<QueryContainerDescriptor<Contact>, QueryContainer>>(
                     value =>
                     {
-                        if (value == "DateOne")
+                        switch (value)
                         {
-                            return m => m.DateRange(
-                                t => t.Field(
-                                    f => f.Individual.AnotherDate
-                                ).Format("MM/dd/yyyy")
-                                .GreaterThanOrEquals("01/01/1940")
-                                .LessThanOrEquals("01/01/1960")
-                            );
+                            case "DateOne":
+                                return m => m.DateRange(
+                                    t => t.Field(
+                                            f => f.Individual.AnotherDate
+                                        ).Format("MM/dd/yyyy")
+                                        .GreaterThanOrEquals("01/01/1940")
+                                        .LessThanOrEquals("01/01/1960")
+                                );
+                            case "DateTwo":
+                                return m => m.DateRange(
+                                    t => t.Field(
+                                            f => f.Individual.AnotherDate
+                                        ).Format("MM/dd/yyyy")
+                                        .GreaterThanOrEquals("02/02/1991")
+                                        .LessThanOrEquals("02/02/1991")
+                                );
+                            default:
+                                return null;
                         }
-
-                        if (value == "DateTwo")
-                        {
-                            return m => m.DateRange(
-                                t => t.Field(
-                                    f => f.Individual.AnotherDate
-                                ).Format("MM/dd/yyyy")
-                                .GreaterThanOrEquals("02/02/1991")
-                                .LessThanOrEquals("02/02/1991")
-                            );
-                        }
-
-                        return null;
                     }
                 );
 
-        static async Task Main(string[] _)
+        static async Task Main()
         {
-            const string ContactsIndexName = "contacts";
+            const string contactsIndexName = "contacts";
 
             Console.WriteLine("Creating ElasticSearch indexes\n");
 
-            var settings = new ConnectionSettings(new Uri("http://localhost:9200")).DefaultIndex(ContactsIndexName);
+            var settings = new ConnectionSettings(new Uri("http://localhost:9200")).DefaultIndex(contactsIndexName);
             var client = new ElasticClient(settings);
-
-            // client.CreateIndex<Contact>(ContactsIndexName);
-
-            // foreach (var contact in Documents.GetContacts())
-            // {
-            //     await client.IndexDocumentAsync(contact);
-            // }
-
-            // Console.WriteLine("\nIndexing finished...\n");
-
+            
             Console.WriteLine("Searching...\n");
 
             var searchRequest = await client.SearchAsync<Contact>(s => s
                 .Query(q => q
                     .Bool(b => b
-                        .Should(GetDataRangeQuery(new string[] { "DateOne", "DateTwo" }))
+                        .Should(GetDataRangeQuery(new[] {"DateOne", "DateTwo"}))
                     )
                 )
             );
 
-            var searchResponceObjectDocs = searchRequest.Documents;
+            var searchResponseObjectDocs = searchRequest.Documents;
 
-            foreach (var searchResponceObjectDoc in searchResponceObjectDocs)
+            foreach (var searchResponseObjectDoc in searchResponseObjectDocs)
             {
-                Console.WriteLine($"{searchResponceObjectDoc.FirstName} {searchResponceObjectDoc.LastName} = {searchResponceObjectDoc.BirthDate}");
+                Console.WriteLine(
+                    $"{searchResponseObjectDoc.FirstName} {searchResponseObjectDoc.LastName} = {searchResponseObjectDoc.BirthDate}");
             }
 
             Console.ReadKey();

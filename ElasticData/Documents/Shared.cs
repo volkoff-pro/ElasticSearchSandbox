@@ -1,4 +1,3 @@
-using System;
 using Nest;
 
 namespace ElasticData.Documents

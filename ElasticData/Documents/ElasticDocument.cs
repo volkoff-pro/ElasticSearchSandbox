@@ -1,5 +1,3 @@
-using System;
-
 namespace ElasticData.Documents
 {
     public abstract class ElasticDocument
