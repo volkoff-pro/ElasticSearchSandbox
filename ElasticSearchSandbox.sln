@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticApp", "ElasticApp\ElasticApp.csproj", "{B0839255-0F6A-4508-BBD9-71525476E587}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elastic.App", "Elastic.App\Elastic.App.csproj", "{B0839255-0F6A-4508-BBD9-71525476E587}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticData", "ElasticData\ElasticData.csproj", "{AA90FF0A-958A-43E3-93F1-EA0B5ADAE6F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elastic.Data", "Elastic.Data\Elastic.Data.csproj", "{AA90FF0A-958A-43E3-93F1-EA0B5ADAE6F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticTests", "ElasticTests\ElasticTests.csproj", "{7B30F810-4527-4BE1-8559-FFFD1DBE0849}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elastic.Tests", "Elastic.Tests\Elastic.Tests.csproj", "{7B30F810-4527-4BE1-8559-FFFD1DBE0849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

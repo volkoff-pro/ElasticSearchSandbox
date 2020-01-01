@@ -11,6 +11,6 @@
     <PackageReference Include="NEST" Version="7.4.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElasticData\ElasticData.csproj" />
+    <ProjectReference Include="..\Elastic.Data\Elastic.Data.csproj" />
   </ItemGroup>
 </Project>

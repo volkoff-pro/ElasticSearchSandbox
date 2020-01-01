@@ -11,8 +11,11 @@
     <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_ElasticSearchSandbox.1695787318.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="ElasticApp" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="ElasticApp.csproj" t="IncludeRecursive" />
+        <e p="ElasticOptions.cs" t="Include" />
+        <e p="Host.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -33,10 +36,14 @@
           <e p="Shared.cs" t="Include" />
         </e>
         <e p="ElasticData.csproj" t="IncludeRecursive" />
+        <e p="ElasticExtensions.cs" t="Include" />
         <e p="ElasticIndexes.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ElasticData.AssemblyInfo.cs" t="Include" />
+            </e>
+            <e p="netstandard2.1" t="Include">
               <e p="ElasticData.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -53,7 +60,6 @@
             </e>
           </e>
         </e>
-        <e p="UnitTest1.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>

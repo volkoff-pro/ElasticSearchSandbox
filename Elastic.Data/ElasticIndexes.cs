@@ -1,15 +1,15 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ElasticData.Documents;
+using Elastic.Data.Documents;
 using Elasticsearch.Net;
 using Nest;
 
-namespace ElasticData
+namespace Elastic.Data
 {
     public static class ElasticIndexes
     {
-        static void CreateIndex<T>(this IElasticClient client, string indexName) where T : ElasticDocument
+        private static void CreateIndex<T>(this IElasticClient client, string indexName) where T : ElasticDocument
         {
             var response = client.Indices.Create(indexName, create => create.Map<T>(map => map.AutoMap()));
 

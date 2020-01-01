@@ -1,4 +1,4 @@
-namespace ElasticData.Documents
+namespace Elastic.Data.Documents
 {
     public abstract class ElasticDocument
     {
