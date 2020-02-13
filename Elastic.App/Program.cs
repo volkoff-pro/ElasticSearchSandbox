@@ -92,18 +92,34 @@ namespace Elastic.App
             Console.ReadKey();
         }
 
-        private static void ConfigureServices(IServiceCollection serviceCollection)
+        private static void ConfigureServices(IServiceCollection services)
         {
-            var configuration = new ConfigurationBuilder()
+            IConfiguration configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, false)
                 .AddEnvironmentVariables()
                 .Build();
 
-            serviceCollection.AddOptions();
-            serviceCollection.Configure<ElasticOptions>(configuration.GetSection("Elastic"));
+            services.AddOptions();
+            services.Configure<ElasticOptions>(configuration.GetSection("ElasticOptions"));
 
-            serviceCollection.AddTransient<Host>();
+            var elasticClient = CreateElasticClient(configuration["ElasticOptions:ConnectionString"], 
+                configuration["ElasticOptions:IndexName"]);
+            services.AddSingleton(elasticClient);
+
+            services.AddTransient<Host>();
+        }
+
+        private static IElasticClient CreateElasticClient(string connectionString, string indexName)
+        {
+            var client = ElasticClientBuilder
+                .Create(connectionString)
+                .Configure(x => { x.EnableDebugMode(); })
+                .Build();
+
+            client.CreateDocumentDefaultIndex<Contact>(indexName);
+
+            return client;
         }
     }
 }

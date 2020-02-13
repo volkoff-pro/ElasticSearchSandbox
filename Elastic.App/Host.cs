@@ -1,21 +1,31 @@
 using System;
 using System.Threading.Tasks;
+using Elasticsearch.Net;
 using Microsoft.Extensions.Options;
+using Nest;
 
 namespace Elastic.App
 {
     public class Host
     {
-        private readonly ElasticOptions _elasticOptions;
-
-        public Host(IOptions<ElasticOptions> options)
+        private readonly IElasticClient _elasticClient;
+        
+        public Host(IElasticClient elasticClient)
         {
-            _elasticOptions = options?.Value ?? throw new ArgumentNullException(nameof(options));
+            _elasticClient = elasticClient;
         }
 
         public async Task Run()
         {
-            
+            var response = await _elasticClient.Cluster.HealthAsync(new ClusterHealthRequest
+            {
+                WaitForStatus = WaitForStatus.Red
+            });
+
+            if (response.IsValid)
+            {
+                Console.WriteLine(response.Status.ToString());
+            }
         }
     }
 }

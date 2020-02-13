@@ -10,22 +10,22 @@
     <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_ElasticSearchSandbox.1695787318.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="ElasticApp" t="IncludeRecursive">
+      <e p="Elastic.App" t="IncludeRecursive">
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="ElasticApp.csproj" t="IncludeRecursive" />
+        <e p="Elastic.App.csproj" t="IncludeRecursive" />
         <e p="ElasticOptions.cs" t="Include" />
         <e p="Host.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="ElasticApp.AssemblyInfo.cs" t="Include" />
+              <e p="Elastic.App.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Program.cs" t="Include" />
       </e>
-      <e p="ElasticData" t="IncludeRecursive">
+      <e p="Elastic.Data" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Bootstrap" t="Include">
           <e p="Documents.cs" t="Include" />
@@ -35,32 +35,38 @@
           <e p="ElasticDocument.cs" t="Include" />
           <e p="Shared.cs" t="Include" />
         </e>
-        <e p="ElasticData.csproj" t="IncludeRecursive" />
+        <e p="Elastic.Data.csproj" t="IncludeRecursive" />
+        <e p="ElasticClientBuilder.cs" t="Include" />
         <e p="ElasticExtensions.cs" t="Include" />
         <e p="ElasticIndexes.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="ElasticData.AssemblyInfo.cs" t="Include" />
+              <e p="Elastic.Data.AssemblyInfo.cs" t="Include" />
             </e>
             <e p="netstandard2.1" t="Include">
-              <e p="ElasticData.AssemblyInfo.cs" t="Include" />
+              <e p="Elastic.Data.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
-      <e p="ElasticSearchSandbox.sln" t="IncludeFlat" />
-      <e p="ElasticTests" t="IncludeRecursive">
+      <e p="Elastic.Tests" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="ElasticTests.csproj" t="IncludeRecursive" />
+        <e p="Elastic.Tests.csproj" t="IncludeRecursive" />
+        <e p="Integration" t="Include">
+          <e p="HostInfrastructureTests.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="ElasticTests.AssemblyInfo.cs" t="Include" />
+              <e p="Elastic.Tests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Unit" t="Include" />
       </e>
+      <e p="ElasticSearchSandbox.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
