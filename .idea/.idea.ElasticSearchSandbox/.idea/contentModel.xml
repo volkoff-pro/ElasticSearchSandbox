@@ -29,9 +29,11 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Bootstrap" t="Include">
           <e p="Documents.cs" t="Include" />
+          <e p="SimpleDocuments.cs" t="Include" />
         </e>
         <e p="Documents" t="Include">
           <e p="Contact.cs" t="Include" />
+          <e p="ContactSimple.cs" t="Include" />
           <e p="ElasticDocument.cs" t="Include" />
           <e p="Shared.cs" t="Include" />
         </e>
