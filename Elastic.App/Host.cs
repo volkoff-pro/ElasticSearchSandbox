@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Elasticsearch.Net;
-using Microsoft.Extensions.Options;
 using Nest;
 
 namespace Elastic.App

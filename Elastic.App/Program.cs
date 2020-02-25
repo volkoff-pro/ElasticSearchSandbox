@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Elastic.Data;
-using Elastic.Data.Bootstrap;
 using Elastic.Data.Documents;
 using Nest;
 
