@@ -103,7 +103,7 @@ namespace Elastic.App
             services.Configure<ElasticOptions>(configuration.GetSection("ElasticOptions"));
 
             var elasticClient = CreateElasticClient(configuration["ElasticOptions:ConnectionString"], 
-                configuration["ElasticOptions:IndexName"]);
+                configuration["ElasticOptions:IndexName"].ToLowerInvariant());
             services.AddSingleton(elasticClient);
 
             services.AddTransient<Host>();
